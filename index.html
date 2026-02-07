@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonali Fashion</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -19,19 +19,21 @@ body{
   overflow-x:hidden;
 }
 
-/* Scroll bar */
+/* progress bar */
 #progress{
   position:fixed;
-  top:0;left:0;height:4px;
-  background:#fff;width:0%;
+  top:0;left:0;
+  height:4px;
+  width:0%;
+  background:#fff;
   z-index:9999;
 }
 
-/* Navbar */
+/* navbar */
 .navbar{
   position:fixed;
   top:0;width:100%;
-  padding:15px 40px;
+  padding:15px 30px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -42,38 +44,29 @@ body{
 
 .navbar a{
   color:#fff;
-  margin-left:25px;
   text-decoration:none;
+  margin-left:20px;
   font-size:14px;
-  transition:0.3s;
 }
 
-.navbar a:hover{
-  opacity:0.7;
-}
-
+/* sections */
 section{
   min-height:100vh;
+  padding:120px 20px 60px;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:column;
   text-align:center;
-  padding:120px 20px 60px;
 }
 
 .hero h1{
-  font-size:6vw;
   font-family:'Playfair Display',serif;
-  letter-spacing:2px;
+  font-size:6vw;
 }
 
-.hero p{
-  margin-top:15px;
-  opacity:0.9;
-}
-
-.sticky-section{
+/* products */
+sticky-section{
   display:flex;
   align-items:center;
   justify-content:center;
@@ -83,63 +76,43 @@ section{
 }
 
 .product-img{
-  width:260px;
+  width:220px;
   filter:drop-shadow(0 40px 60px rgba(0,0,0,0.5));
-  transition:0.6s ease;
-}
-
-.product-img:hover{
-  transform:scale(1.1) rotate(-2deg);
 }
 
 .product-text{
-  max-width:380px;
+  max-width:350px;
   text-align:left;
 }
 
-.product-text h2{
-  font-family:'Playfair Display',serif;
-  margin-bottom:10px;
-}
-
 .add-btn{
-  margin-top:15px;
+  margin-top:12px;
   padding:10px 25px;
   border:none;
   border-radius:30px;
   background:#fff;
   color:#880e4f;
   cursor:pointer;
-  font-weight:500;
-  transition:0.3s;
 }
 
-.add-btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 10px 30px rgba(255,255,255,0.4);
-}
-
-/* CART BUTTON */
+/* cart button */
 #cart-btn{
   position:fixed;
-  bottom:30px;
-  right:30px;
+  bottom:25px;
+  right:25px;
   background:#fff;
   color:#880e4f;
   padding:12px 20px;
   border-radius:40px;
   cursor:pointer;
-  font-weight:600;
   z-index:1001;
-  box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
-/* CART MODAL */
+/* cart */
 #cart-overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(6px);
   opacity:0;
   pointer-events:none;
   z-index:1000;
@@ -148,61 +121,42 @@ section{
 #cart-modal{
   position:fixed;
   top:0;
-  right:-400px;
-  width:350px;
+  right:-380px;
+  width:340px;
   height:100%;
   background:#fff;
   color:#333;
   padding:25px;
   z-index:1002;
-  display:flex;
-  flex-direction:column;
-}
-
-#cart-items{
-  flex:1;
-  overflow-y:auto;
-  margin-top:20px;
 }
 
 .checkout-btn{
+  display:block;
+  margin-top:15px;
   padding:10px;
-  border:none;
   border-radius:30px;
   background:#25D366;
   color:#fff;
-  cursor:pointer;
-  margin-top:10px;
+  text-decoration:none;
+  text-align:center;
 }
 
-.close-btn{
-  padding:10px;
-  border:none;
-  border-radius:30px;
-  background:#eee;
-  margin-top:10px;
-  cursor:pointer;
-}
-
-/* ===== GIF SHIPPING SCREEN ===== */
+/* 🚚 GIF SHIPPING SCREEN */
 #gif-shipping{
   position:fixed;
   inset:0;
   background:linear-gradient(180deg,#ff4d8d,#880e4f);
   display:flex;
-  align-items:center;
   justify-content:center;
-  z-index:99999;
+  align-items:center;
   opacity:0;
   pointer-events:none;
-  transition:0.4s ease;
+  z-index:99999;
 }
 
 #gif-shipping img{
-  width:320px;
-  max-width:85%;
-  border-radius:20px;
-  box-shadow:0 30px 60px rgba(0,0,0,0.4);
+  width:300px;
+  max-width:80%;
 }
 </style>
 </head>
@@ -212,25 +166,24 @@ section{
 <div id="progress"></div>
 
 <div class="navbar">
-  <h2>Sonali Fashion</h2>
+  <h3>Sonali Fashion </h3>
   <div>
     <a href="#hero">Home</a>
     <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
   </div>
 </div>
 
 <section class="hero" id="hero">
-  <h1>Sonali Fashion</h1>
+  <h1>Sonali Fashion Indapur</h1>
   <p>Luxury Skin. Bold Confidence.</p>
 </section>
 
 <section id="products">
+
   <div class="sticky-section">
     <img src="SScreem.jpg" class="product-img">
     <div class="product-text">
       <h2>Sunscreen</h2>
-      <p>Invisible protection. Feather-light texture.</p>
       <button class="add-btn" onclick="addToCart('Sunscreen',300)">Add to Cart</button>
     </div>
   </div>
@@ -238,8 +191,7 @@ section{
   <div class="sticky-section">
     <img src="Kesar.jpg" class="product-img">
     <div class="product-text">
-      <h2>Kesar Night Cream 25g</h2>
-      <p>Deep nourishment with timeless glow best for melasma and dark spots.</p>
+      <h2>Kesar Night Cream</h2>
       <button class="add-btn" onclick="addToCart('Kesar Night Cream',550)">Add to Cart</button>
     </div>
   </div>
@@ -247,8 +199,7 @@ section{
   <div class="sticky-section">
     <img src="antitan.jpg" class="product-img">
     <div class="product-text">
-      <h2>Anti Tan Soap 50g</h2>
-      <p>Restore clarity and brightness best for melasma and pigmentation.</p>
+      <h2>Anti Tan Soap</h2>
       <button class="add-btn" onclick="addToCart('Anti Tan Soap',75)">Add to Cart</button>
     </div>
   </div>
@@ -256,81 +207,71 @@ section{
   <div class="sticky-section">
     <img src="antiacne.jpg" class="product-img">
     <div class="product-text">
-      <h2>Anti Acne Soap 50g</h2>
-      <p>Target impurities. Calm skin.</p>
+      <h2>Anti Acne Soap</h2>
       <button class="add-btn" onclick="addToCart('Anti Acne Soap',75)">Add to Cart</button>
     </div>
   </div>
-</section>
-
 <section id="contact">
   <h2>Contact Us</h2>
-  <p>📞 +91 9876543210</p>
-  <p>📍 Pune, Maharashtra</p>
-  <p>📸 Instagram: @sonalifashion</p>
+  <p style="text-align:center">
+    Email✉️: sonalifashions@gmail.com<br>
+    Phone📞: +91 8605463560<br>
+    instagram📷: Sonalifashionsindapur
+  </p>
 </section>
 
-<div id="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</div>
+<div id="cart-btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
 <div id="cart-overlay" onclick="toggleCart()"></div>
 
 <div id="cart-modal">
   <h3>Your Cart</h3>
   <div id="cart-items"></div>
-  <p><strong>Total Rs.<span id="cart-total">0</span></strong></p>
-  <button class="checkout-btn" onclick="checkout()">Checkout on WhatsApp</button>
-  <button class="close-btn" onclick="toggleCart()">Close</button>
+  <p><strong>Total Rs. <span id="cart-total">0</span></strong></p>
+  <a href="#" class="checkout-btn" onclick="return checkoutWhatsApp()">Checkout on WhatsApp</a>
 </div>
 
-<!-- GIF SCREEN -->
+<!-- 🚚 GIF -->
 <div id="gif-shipping">
-  <img src="delivery.gif" alt="Shipping Animation">
+  <img src="delivery.gif" alt="Shipping">
 </div>
 
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
+/* progress */
 window.addEventListener("scroll",()=>{
-  let winScroll=document.documentElement.scrollTop;
-  let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById("progress").style.width=(winScroll/height)*100+"%";
+  const sc=document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById("progress").style.width=(sc/h)*100+"%";
 });
 
-gsap.from(".hero h1",{opacity:0,y:120,duration:1.2,ease:"power4.out"});
-gsap.from(".hero p",{opacity:0,y:60,duration:1,delay:0.4});
-
-gsap.utils.toArray(".sticky-section").forEach(section=>{
-  gsap.from(section,{
-    scrollTrigger:{trigger:section,start:"top 80%"},
-    opacity:0,y:100,duration:1.2,ease:"power3.out"
+/* animations */
+gsap.from(".hero h1",{opacity:0,y:100,duration:1});
+gsap.utils.toArray(".sticky-section").forEach(sec=>{
+  gsap.from(sec,{
+    scrollTrigger:{trigger:sec,start:"top 80%"},
+    opacity:0,y:80,duration:1
   });
 });
 
-gsap.utils.toArray(".product-img").forEach(img=>{
-  gsap.to(img,{y:-15,repeat:-1,yoyo:true,duration:3,ease:"sine.inOut"});
-});
-
+/* cart logic */
 let cart=[];
 let cartOpen=false;
 
 function addToCart(name,price){
   cart.push({name,price});
   updateCart();
-  gsap.from("#cart-btn",{scale:1.3,duration:0.3,ease:"back.out(3)"});
 }
 
 function updateCart(){
-  document.getElementById("cart-count").innerText=cart.length;
-  let items=document.getElementById("cart-items");
   let total=0;
+  const items=document.getElementById("cart-items");
   items.innerHTML="";
   cart.forEach((item,i)=>{
     total+=item.price;
-    items.innerHTML+=`
-      <div style="margin-bottom:10px;">
-        ${item.name} - Rs.${item.price}
-        <span style="color:red;cursor:pointer" onclick="removeItem(${i})">❌</span>
-      </div>`;
+    items.innerHTML+=`${item.name} - Rs.${item.price} <span onclick="removeItem(${i})">❌</span><br>`;
   });
+  document.getElementById("cart-count").innerText=cart.length;
   document.getElementById("cart-total").innerText=total;
 }
 
@@ -340,41 +281,30 @@ function removeItem(i){
 }
 
 function toggleCart(){
-  const modal=document.getElementById("cart-modal");
-  const overlay=document.getElementById("cart-overlay");
-
-  if(!cartOpen){
-    gsap.to(modal,{right:0,duration:0.6,ease:"power4.out"});
-    gsap.to(overlay,{opacity:1,pointerEvents:"auto",duration:0.4});
-  }else{
-    gsap.to(modal,{right:-400,duration:0.5});
-    gsap.to(overlay,{opacity:0,pointerEvents:"none",duration:0.3});
-  }
+  document.getElementById("cart-modal").style.right=cartOpen?"-380px":"0";
+  document.getElementById("cart-overlay").style.opacity=cartOpen?"0":"1";
+  document.getElementById("cart-overlay").style.pointerEvents=cartOpen?"none":"auto";
   cartOpen=!cartOpen;
 }
 
-function checkout(){
-  if(cart.length===0){
-    alert("Cart is empty");
-    return;
-  }
+/* 🚚 checkout with gif */
+function checkoutWhatsApp(){
+  if(cart.length===0) return false;
 
   let msg="Hello, I want to order:%0A";
   cart.forEach(p=>{
-    msg+=`🔹 ${p.name} - Rs.${p.price}%0A`;
+    msg+=`- ${p.name} Rs.${p.price}%0A`;
   });
 
-  const gifScreen=document.getElementById("gif-shipping");
-  gifScreen.style.opacity="1";
-  gifScreen.style.pointerEvents="auto";
+  const gif=document.getElementById("gif-shipping");
+  gif.style.opacity="1";
+  gif.style.pointerEvents="auto";
 
   setTimeout(()=>{
-    gsap.to(gifScreen, {opacity:0, duration:0.5, onComplete: () => {
-      window.location.href = "https://wa.me/918605463560?text="+msg;
-      cart=[];
-      updateCart();
-    }});
-  }, 7000);
+    window.location.href="https://wa.me/918605463560?text="+msg;
+  },6000);
+
+  return false;
 }
 </script>
 
