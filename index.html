@@ -261,8 +261,13 @@ function checkout() {
     msg += `• ${p.name} – Rs.${p.price}\n`;
   });
 
+  const phone = "918605463560"; // 91 + 10-digit number, no +, no spaces
+
   window.open(
-    "https://wa.me/918605463560?text=" + encodeURIComponent(msg),
+    "https://api.whatsapp.com/send?phone=" +
+      phone +
+      "&text=" +
+      encodeURIComponent(msg),
     "_blank"
   );
 }
